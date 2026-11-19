@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="12dp">
 
-    <!-- Заголовок и кнопка добавления -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,12 +34,26 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Список задач (Прокручиваемый) -->
-    <ListView
-        android:id="@+id/quest_list"
+    <!-- Место для задач (пока просто 3 текстовых блока) -->
+    <TextView
+        android:id="@+id/task_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:dividerHeight="4dp"
-        android:scrollbars="none" />
+        android:layout_height="wrap_content"
+        android:textColor="#E8D5B5"
+        android:textSize="14sp"
+        android:padding="4dp"/>
+    <TextView
+        android:id="@+id/task_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#E8D5B5"
+        android:textSize="14sp"
+        android:padding="4dp"/>
+    <TextView
+        android:id="@+id/task_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#E8D5B5"
+        android:textSize="14sp"
+        android:padding="4dp"/>
 </LinearLayout>
