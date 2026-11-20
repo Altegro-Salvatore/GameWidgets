@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:label="GameWidgets"
@@ -15,22 +17,24 @@
             </intent-filter>
         </activity>
 
-        <!-- Активность для добавления задачи (выглядит как диалог) -->
-        <activity
-            android:name=".AddQuestActivity"
-            android:theme="@style/Theme.AppCompat.Transparent"
-            android:excludeFromRecents="true" />
+        <activity android:name=".AddQuestActivity" android:theme="@style/Theme.AppCompat.Transparent" android:excludeFromRecents="true" />
 
-        <!-- Наш Виджет Квестов -->
-        <receiver
-            android:name=".QuestWidgetProvider"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/quest_widget_info" />
+        <!-- ВИДЖЕТ 1: КВЕСТЫ -->
+        <receiver android:name=".QuestWidgetProvider" android:exported="true">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/quest_widget_info" />
+        </receiver>
+
+        <!-- ВИДЖЕТ 2: СТАТЫ -->
+        <receiver android:name=".StatsWidgetProvider" android:exported="true">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/stats_widget_info" />
+        </receiver>
+
+        <!-- ВИДЖЕТ 3: ЧАСЫ -->
+        <receiver android:name=".ClockWidgetProvider" android:exported="true">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/clock_widget_info" />
         </receiver>
 
     </application>
