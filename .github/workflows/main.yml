@@ -28,13 +28,13 @@ jobs:
     - name: Build with Gradle
       run: gradle assembleDebug
       
-    # --- ВОТ ЭТОТ НОВЫЙ ШАГ ДЛЯ ПОЛУЧЕНИЯ SHA-1 ---
+    # --- ИСПРАВЛЕННЫЙ ШАГ ---
     - name: Get SHA-1 Fingerprint
       run: |
         echo "========== СКОПИРУЙ СТРОКУ НИЖЕ =========="
-        keytool -printcert -jarfile app/build/outputs/apk/debug/app-debug.apk | grep SHA1
+        keytool -list -v -keystore app/debug.keystore -alias androiddebugkey -storepass android -keypass android | grep "SHA1:"
         echo "=========================================="
-    # ----------------------------------------------
+    # ------------------------
       
     - name: Upload APK
       uses: actions/upload-artifact@v4
