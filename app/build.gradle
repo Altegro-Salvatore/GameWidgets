@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // Плагин для Google сервисов (Firebase)
+    id 'com.google.gms.google-services' version '4.4.1' apply false
 }
 
 android {
@@ -15,8 +17,12 @@ android {
         versionName "1.0"
     }
 
-    buildFeatures { compose true }
-    composeOptions { kotlinCompilerExtensionVersion '1.5.8' }
+    buildFeatures { 
+        compose true 
+    }
+    composeOptions { 
+        kotlinCompilerExtensionVersion '1.5.8' 
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -31,4 +37,9 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.8.2'
     implementation 'androidx.compose.material3:material3'
     implementation 'androidx.compose.foundation:foundation'
+    
+    // Firebase (для аккаунтов и синхронизации)
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
