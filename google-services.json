@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1081608163299",
+    "project_id": "gamewidgets-31323",
+    "storage_bucket": "gamewidgets-31323.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081608163299:android:03525c20381d2b18d45ad6",
+        "android_client_info": {
+          "package_name": "com.altegro.gamewidgets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_nh-hv5GVgPl8UqRwN088QYPWu6Nm3AM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
