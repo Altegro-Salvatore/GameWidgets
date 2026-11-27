@@ -1,7 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Виджет «Квесты»: поддерживающий изменение размера скроллируемый список -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="110dp" android:minHeight="110dp"
-    android:targetCellWidth="2" android:targetCellHeight="2"
+    android:minResizeWidth="40dp" android:minResizeHeight="60dp"
+    android:maxResizeWidth="400dp" android:maxResizeHeight="600dp"
+    android:targetCellWidth="2" android:targetCellHeight="3"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1800000"
     android:initialLayout="@layout/widget_quests"
+    android:previewImage="@mipmap/ic_launcher"
+    android:description="@string/quest_widget_desc"
     android:widgetCategory="home_screen" />

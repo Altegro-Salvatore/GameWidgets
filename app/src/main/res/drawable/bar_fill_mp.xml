@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Заполнение полоски MP -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="0"
+        android:startColor="#2A6C80"
+        android:endColor="@color/gw_mp" />
+    <corners android:radius="5dp" />
+</shape>

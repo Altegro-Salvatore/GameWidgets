@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GameWidgets</string>
+    <string name="quest_widget_desc">Список квестов (задач) в стиле пергамента</string>
+    <string name="stats_widget_desc">HP, MP и шаги персонажа</string>
+    <string name="clock_widget_desc">Часы в золотой рамке</string>
+</resources>
