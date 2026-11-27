@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Палитра GameWidgets: темное фэнтези / D&D -->
+    <color name="gw_bg">#1A1512</color>          <!-- Основной фон: темное дерево/обсидиан -->
+    <color name="gw_card">#2C231E</color>        <!-- Фон карточек: темный пергамент/кожа -->
+    <color name="gw_gold">#C59B4B</color>        <!-- Акцент: золото/латунь -->
+    <color name="gw_text">#E8D5B5</color>        <!-- Текст: светлый пергамент -->
+    <color name="gw_hp">#D9534F</color>          <!-- HP (Здоровье) -->
+    <color name="gw_mp">#5BC0DE</color>          <!-- MP (Мана) -->
+    <color name="gw_done">#6E5A44</color>        <!-- Выполненный квест -->
+</resources>

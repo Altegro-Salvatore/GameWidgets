@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.AppCompat.Transparent" parent="@android:style/Theme.Translucent.NoTitleBar">
+    <!-- Основная тема приложения: темное фэнтези -->
+    <style name="Theme.GameWidgets" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:colorBackground">@color/gw_bg</item>
+        <item name="android:windowBackground">@color/gw_bg</item>
+        <item name="android:textColorPrimary">@color/gw_text</item>
+        <item name="android:statusBarColor">@color/gw_bg</item>
+    </style>
+
+    <!-- Полупрозрачная тема для всплывающих окон, вызываемых из виджетов -->
+    <style name="Theme.TransparentDialog" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>

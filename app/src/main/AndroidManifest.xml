@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Шагомер (Android 10+) -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- Пульс / здоровье из Health Connect -->
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+
+    <!-- Видимимость списка приложений на Android 11+ (HyperOS часто скрывает) -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
         android:label="GameWidgets"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Material.NoActionBar">
+        android:theme="@style/Theme.GameWidgets">
 
         <activity
             android:name=".MainActivity"
@@ -17,12 +32,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AddQuestActivity" android:theme="@style/Theme.AppCompat.Transparent" android:excludeFromRecents="true" />
+        <!-- Диалоги поверх рабочего стола (вызываются из виджетов) -->
+        <activity android:name=".AddQuestActivity" android:theme="@style/Theme.TransparentDialog" android:excludeFromRecents="true" android:launchMode="singleInstance" />
+        <activity android:name=".AddMpActivity" android:theme="@style/Theme.TransparentDialog" android:excludeFromRecents="true" android:launchMode="singleInstance" />
+        <activity android:name=".AppPickerActivity" android:theme="@style/Theme.GameWidgets" android:excludeFromRecents="true" />
 
         <!-- ВИДЖЕТ 1: КВЕСТЫ -->
+        <service android:name=".QuestWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS" android:exported="false" />
+
         <receiver android:name=".QuestWidgetProvider" android:exported="true">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/quest_widget_info" />
+        </receiver>
+
+        <!-- Клик по задаче в списке виджета -->
+        <receiver android:name=".QuestClickReceiver" android:exported="false">
+            <intent-filter><action android:name="com.altegro.gamewidgets.TOGGLE_QUEST" /></intent-filter>
         </receiver>
 
         <!-- ВИДЖЕТ 2: СТАТЫ -->
@@ -36,6 +61,9 @@
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/clock_widget_info" />
         </receiver>
+
+        <!-- Раз в сутки (00:00) сбрасываем MP и шаги -->
+        <receiver android:name=".DailyResetReceiver" android:exported="false" />
 
     </application>
 </manifest>

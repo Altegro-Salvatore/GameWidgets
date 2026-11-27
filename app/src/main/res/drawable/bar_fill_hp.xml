@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Заполнение полоски HP -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="0"
+        android:startColor="#8F2B28"
+        android:endColor="@color/gw_hp" />
+    <corners android:radius="5dp" />
+</shape>

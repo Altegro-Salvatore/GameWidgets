@@ -1,10 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Виджет «Статы»: HP / MP / Шаги в виде сфер-орбов и полосок -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/widget_bg" android:orientation="vertical" android:padding="12dp" android:gravity="center_vertical">
+    android:background="@drawable/widget_bg" android:orientation="vertical"
+    android:padding="12dp">
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Статы" android:textColor="#C59B4B" android:textStyle="bold" android:textSize="14sp" android:layout_marginBottom="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="✦ Статы" android:textColor="@color/gw_gold" android:fontFamily="serif"
+        android:textStyle="bold" android:textSize="14sp" android:layout_marginBottom="8dp"/>
 
-    <TextView android:id="@+id/tv_hp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HP (Пульс): 99" android:textColor="#D9534F" android:textSize="16sp" android:textStyle="bold"/>
-    <TextView android:id="@+id/tv_mp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="MP (Калории): 0" android:textColor="#5BC0DE" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
-    <TextView android:id="@+id/tv_steps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Шаги: 0" android:textColor="#E8D5B5" android:textSize="14sp" android:layout_marginTop="4dp"/>
+    <!-- Ряд сфер -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:baselineAligned="false">
+
+        <!-- HP -->
+        <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginEnd="6dp">
+            <View android:id="@+id/orb_hp" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:background="@drawable/orb_hp"/>
+            <TextView android:id="@+id/tv_hp_value" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:gravity="center"
+                android:text="--" android:textColor="#FFFFFF" android:textStyle="bold"
+                android:textSize="15sp" android:fontFamily="serif"/>
+        </FrameLayout>
+
+        <!-- MP -->
+        <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginEnd="6dp">
+            <View android:id="@+id/orb_mp" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:background="@drawable/orb_mp"/>
+            <TextView android:id="@+id/tv_mp_value" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:gravity="center"
+                android:text="--" android:textColor="#FFFFFF" android:textStyle="bold"
+                android:textSize="15sp" android:fontFamily="serif"/>
+        </FrameLayout>
+
+        <!-- Шаги -->
+        <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+            <View android:id="@+id/orb_steps" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:background="@drawable/orb_steps"/>
+            <TextView android:id="@+id/tv_steps_value" android:layout_width="52dp" android:layout_height="52dp"
+                android:layout_gravity="center_horizontal" android:gravity="center"
+                android:text="--" android:textColor="#FFFFFF" android:textStyle="bold"
+                android:textSize="13sp" android:fontFamily="serif"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Подписи сфер -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginTop="2dp" android:layout_marginBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:gravity="center" android:text="HP" android:textColor="@color/gw_hp"
+            android:textSize="11sp" android:textStyle="bold" android:fontFamily="serif"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:gravity="center" android:text="MP" android:textColor="@color/gw_mp"
+            android:textSize="11sp" android:textStyle="bold" android:fontFamily="serif"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:gravity="center" android:text="ШАГИ" android:textColor="@color/gw_gold"
+            android:textSize="11sp" android:textStyle="bold" android:fontFamily="serif"/>
+    </LinearLayout>
+
+    <!-- Полоски -->
+    <TextView android:id="@+id/tv_hp" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="HP (Пульс): --" android:textColor="@color/gw_hp" android:textSize="13sp"
+        android:fontFamily="serif"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="8dp"
+        android:layout_marginTop="2dp" android:background="@drawable/bar_track">
+        <ImageView android:id="@+id/bar_hp" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:src="@drawable/bar_fill_hp" android:scaleType="fitXY" android:contentDescription="@null"/>
+    </FrameLayout>
+
+    <TextView android:id="@+id/tv_mp" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="MP (Калории): 0" android:textColor="@color/gw_mp" android:textSize="13sp"
+        android:fontFamily="serif" android:layout_marginTop="6dp"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="8dp"
+        android:layout_marginTop="2dp" android:background="@drawable/bar_track">
+        <ImageView android:id="@+id/bar_mp" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:src="@drawable/bar_fill_mp" android:scaleType="fitXY" android:contentDescription="@null"/>
+    </FrameLayout>
+
+    <TextView android:id="@+id/tv_steps" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Шаги: 0" android:textColor="@color/gw_text" android:textSize="13sp"
+        android:fontFamily="serif" android:layout_marginTop="6dp"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="8dp"
+        android:layout_marginTop="2dp" android:background="@drawable/bar_track">
+        <ImageView android:id="@+id/bar_steps" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:src="@drawable/bar_fill_steps" android:scaleType="fitXY" android:contentDescription="@null"/>
+    </FrameLayout>
+
+    <!-- Тап по виджету = пополнить MP -->
+    <TextView android:id="@+id/btn_add_mp" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="＋ Пополнить ману" android:gravity="center" android:paddingTop="6dp"
+        android:textColor="@color/gw_gold" android:textSize="12sp" android:fontFamily="serif"
+        android:layout_marginTop="6dp"/>
 </LinearLayout>
